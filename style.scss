@@ -1,0 +1,53 @@
+
+.container,
+.container-fluid {
+    & > * {
+        border: 1px solid #cd99ec;
+        background: #e7c6fb;
+    }
+}
+
+//Highlight current class being active
+
+@mixin bold($size: '') {
+
+    .#{$size}bold {
+        font-weight: bold;
+    }
+
+    .#{$size}normal {
+        font-weight: normal;
+    }
+}
+
+@mixin bold-size($size) {
+    @include bold(#{$size}-);
+}
+
+//XS: default
+@include bold();
+
+@media (min-width: 576px) {
+    //SM
+    @include bold-size('sm');
+}
+
+@media (min-width: 768px) {
+    //MD
+    @include bold-size('md');
+}
+
+@media (min-width: 992px) {
+    //LG
+    @include bold-size('lg');
+}
+
+@media (min-width: 1200px) {
+    //XL
+    @include bold-size('xl');
+}
+
+table, td, th {
+    border: 1px solid #888;
+    border-collapse: collapse;
+}

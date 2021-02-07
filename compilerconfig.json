@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "docs/SilentGrid.css",
+    "inputFile": "SilentGrid.scss"
+  },
+  {
+    "outputFile": "docs/style.css",
+    "inputFile": "style.scss"
+  }
+]

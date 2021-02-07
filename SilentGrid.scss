@@ -1,0 +1,85 @@
+$container-margin: 15px;
+$col-gap: 20px;
+
+.container-fluid,
+.container {
+    padding: 0 $container-margin;
+    margin: 0 auto;
+}
+
+.container-fluid {
+    margin: 0 $container-margin;
+}
+
+.container-fluid,
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 0 $col-gap;
+}
+
+@mixin col($size: '') {
+
+    @for $i from 1 through 11 {
+        .#{$size}start-#{$i} {
+            grid-column-start: $i;
+        }
+    }
+
+    @for $i from 2 through 12 {
+        .#{$size}span-#{$i} {
+            grid-column-end: span $i;
+        }
+    }
+
+    .#{$size}show {
+        display: initial;
+    }
+
+    .#{$size}hide {
+        display: none;
+    }
+}
+
+@mixin col-size($size) {
+    @include col(#{$size}-);
+}
+
+//XS: default
+@include col();
+
+@media (min-width: 576px) {
+    //SM
+    .container {
+        width: 540px;
+    }
+
+    @include col-size('sm');
+}
+
+@media (min-width: 768px) {
+    //MD
+    .container {
+        width: 720px;
+    }
+
+    @include col-size('md');
+}
+
+@media (min-width: 992px) {
+    //LG
+    .container {
+        width: 960px;
+    }
+
+    @include col-size('lg');
+}
+
+@media (min-width: 1200px) {
+    //XL
+    .container {
+        width: 1140px;
+    }
+
+    @include col-size('xl');
+}
